@@ -1,0 +1,870 @@
+/* 
+Theme Name: Divi-child
+Description: Child Theme for Divi Theme
+Author: Lapo
+Author URI: https://laposolutions.de
+Template: Divi
+Version: 1.0.0
+Text Domain: divi-child
+License: GNU General Public License or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+*/
+
+/*
+* remove divi default sidebar from all pages
+*/
+/*** Take out the divider line between content and sidebar ***/
+#main-content .container:before {background: none;}
+  
+/*** Hide Sidebar ***/
+#sidebar {display:none;}
+  
+/*** Expand the content area to fullwidth ***/
+@media (min-width: 981px){
+#left-area {
+    width: 100%;
+    padding: 23px 0px 0px !important;
+    float: none !important;
+}
+}
+
+/*
+ * fix divi not being able to display 3 columns for shop module
+ */
+
+.et_full_width_page.woocommerce-page ul.products > li.product:nth-child(n){
+    clear: none;
+}
+.et_full_width_page.woocommerce-page ul.products > li.product:not(.last){
+    margin-right: 3.8%;
+}
+
+@media (max-width: 662px) {
+    .et-db #et-boc .et-l .et_pb_shop ul.products > li.product:nth-child(n) {
+    width: 100% !important;
+    }
+}
+@media (min-width: 1086px) {
+    .et-db #et-boc .et-l .et_pb_shop ul.products > li.product:nth-child(n) {
+    width: 30% !important;
+    }
+}
+/*
+* css for font sizes
+*/
+/* breadcrumbs */
+.woocommerce .woocommerce-breadcrumb {
+    font-size: 1em;
+}
+/* mega menu top */
+.et-menu li {
+    font-size: 14px;
+    font-weight: 600;
+}
+.et-db #et-boc .et-l .et-menu > li > a:hover, .et-db #et-boc .et-l .et-menu > li:hover > a {
+    color: black;
+    opacity: 1!important;
+    text-decoration: underline;
+}
+.et-db #et-boc .et-l .et-menu > li > a {
+    font-size: 1rem;
+    
+}
+/* body */
+.body {
+    font-size: 16px;
+}
+/* product loop title */
+.woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 {
+    font-size: 1.6em;
+}
+/* pricerating */
+.loop-pricerating-container {
+    font-size: 1.2em;
+}
+/* pricerating */
+.woocommerce-page ul.products li.product .price, .woocommerce-page ul.products li.product .price del, .woocommerce ul.products li.product .price, .woocommerce ul.products li.product .price del {
+    font-size: 1em;
+}
+/*
+* css for home page frame shapes
+*/
+.ls-frameshape-container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-flow: wrap;
+    /* padding: 0 80px; */
+}
+.ls-frameshape {
+    padding: 30px;
+    display: grid;
+}
+.ls-frameshape svg {
+    height: 40px;
+    margin-bottom: 10px;
+}
+/*
+* css for brand carousel on home page
+*/
+.pwb-carousel .slick-track {
+    display: flex!important;
+    align-items: center;
+}
+/*
+* css for home page footer
+*/
+.fwidget.et_pb_widget.widget_nav_menu {
+    margin-bottom: 0;
+}
+/*
+* css for shop page
+*/
+.et-db #et-boc .et-l .et_pb_section .et_pb_row_2.et_pb_row {
+    width: 100%!important;
+    max-width: 100%!important;
+    margin: 0 !important;
+}
+  
+.et_pb_row_2.et_pb_row {
+    margin-left: 0px !important;
+}
+  
+/*
+* css for products on shop page
+*/
+.product.type-product{
+    padding: 1%!important;
+    border-radius: 5px;
+    box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
+}
+.product.type-product:hover {
+    box-shadow: 0px 10px 16px 1px #000000d6;
+    transition: all ease-in-out 0.1s;
+}
+.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+    text-align: center;
+}
+.loop-pricerating-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.product h2 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.et_overlay {
+    display: none!important;
+}
+/*
+* css for cart on basket page
+*/
+.woocommerce .product-remove a {
+    font-size: 0.8em!important;
+    text-decoration-line: underline!important;
+    color: black!important;
+    font-weight: normal!important;
+    width: fit-content;
+}
+.woocommerce .product-remove > div {
+    width: fit-content;
+}
+.woocommerce .product-remove > a:hover {
+    color: black!important;
+    background: transparent;
+}
+/*
+* css for filter and sort buttons on shop page
+*/
+.ls-filtersort-container{
+    background: white;
+    padding: 10px 0;
+}
+/*
+ * css for product buttons in shop module - html added in functions.php
+ */
+.ls-wooloop-product-buttons {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 10px;
+    height: 57px;
+}
+.ls-wooloop-product-buttons > a{
+	text-align: center;
+	font-weight: 600;
+	color: black;
+    border: solid 1px transparent;
+	width: 26%;
+    flex-grow: 1;
+	padding: 10px;
+	cursor: pointer;
+}
+.ls-wooloop-product-buttons > a:hover{
+	/* background: #4c5866; */
+	/* color: white; */
+    border: solid 1px black;
+	border-radius: 4px;
+}
+.ls-wooloop-product-buttons > a:last-child{
+		width: 46%;
+}
+/*
+ * css for basket icon in menu
+ */
+.cart-contents {
+    position: relative;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+.cart-contents:hover {
+    text-decoration: none;
+}
+.cart-contents-count {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    right: -5px;
+    top: -3px;
+    background: #ec5858;
+    color: #fff;
+    font-size: 11px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+/*
+ * css for menu icons
+ */
+.ls-menu-icons-wrapper .et_pb_text_inner > p {
+	display: flex;
+	justify-content: flex-end;
+}
+/*
+* css for mega menu
+*/
+.et_mobile_menu{
+    width: 100vw!important;
+    left: -8px!important;
+    overflow-y: scroll!important;
+    max-height: 80vh!important;
+    -overflow-scrolling: touch!important;
+    -webkit-overflow-scrolling: touch!important;
+}
+.et_mobile_menu .toggle-parent > a, .ls_mobile_filter .toggle-parent > label {
+    background-color: transparent;
+    position: relative;
+}
+.et_mobile_menu .toggle-parent > a:after {
+    font-family: "ETmodules";
+    content: "\4c";
+    font-weight: normal;
+    position: absolute;
+    font-size: 16px;
+    top: 13px;
+    right: 10px;
+    display: block!important;
+}
+.et_mobile_menu .toggle-parent > .icon-switch:after {
+    content: "\4d";
+}
+.toggle-child {
+    display: none!important;
+}
+.reveal-items {
+    display: block!important;
+}
+/* .reveal-fitems{
+    display: flex!important;
+} */
+  /* .et_mobile_menu {
+    margin-top: 20px;
+    width: 230%;
+    margin-left: -65%;
+  } */
+
+/* targets every column */
+.et-menu-nav li.mega-menu > ul >li, .et-db #et-boc .et-l .et-menu-nav li.mega-menu > ul > li {
+    width: 18%;
+    border-right: 1px solid rgba(0,0,0,.03);
+    padding: 0 5px;
+}
+.et-menu-nav li.mega-menu > ul > li:nth-child(2), .et-menu-nav li.mega-menu > ul > li:nth-child(3) {
+    width: 23%!important;
+}
+.et-menu-nav li.mega-menu li > ul, .et-db #et-boc .et-l .et-menu-nav li.mega-menu li > ul {
+    width:100%!important;
+}
+#menu-mega-menu > li > .sub-menu, .et-db #et-boc .et-l .et-menu-nav li.mega-menu > ul {
+    width: 95vw;
+}
+.nav li ul {
+    border-top: 2px solid black;
+}
+.nav li li a {
+    line-height: 1.5em;
+    font-size: 13px;
+}
+.et-menu-nav li.mega-menu > ul > li > a:first-child, .et-db #et-boc .et-l .et-menu-nav li.mega-menu > ul > li > a:first-child {
+    padding-top: 0 !important;
+    font-weight: 700;
+    border-bottom: 0;
+}
+.sub-menu .menu-item-has-children > a:first-child {
+    font-weight: 700;
+    text-decoration: underline!important;
+    text-underline-offset: 5px;
+    cursor: pointer;
+}
+.sub-menu .menu-item-has-children > a:first-child:hover {
+    background-color: transparent!important;
+}
+.menu-item-has-icon {
+    display: flex;
+    align-items: center;
+}
+.menu-item-has-icon svg {
+    height: 20px;
+}
+.menu-item-object-pwb-brand {
+    width: 50%;
+}
+.menu-item-object-frame-shape {
+    width: 50%;
+}
+.menu-item-object-frame-shape a{
+    display: flex;
+    align-items: center;
+}
+/*
+* css for product action column on product page
+*/
+#ls-product-action-col * {
+    text-align: center;
+    justify-content: center;
+}
+/*
+* css for buttons on product page
+*/
+.ls-product-btns {
+    padding: 22px 8%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.ls-product-btns .button, .ls-product-btns button.button.alt[type="submit"] {
+   display: inline-flex;
+   justify-content: center;
+}
+.ls-product-btns .wishsuite-button svg {
+    width: 25px;
+    height: auto;
+}
+.ls-product-btns .button:after{
+    position:relative!important;
+}
+/*
+* css for product details column on product page
+*/
+.ls-product-details-column h3 {
+    font-weight: bold;
+    font-size: 24px;
+}
+/*
+* css for measurements on product page
+*/
+.product-measurements {
+    display: flex;
+    padding: 18px 8%;
+    position: relative;
+}
+.product-measurements-container > span {
+    font-weight: bold;
+}
+.product-measurement {
+    margin-right: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.product-measurement svg {
+    height: 75px;
+}
+.product-measurement-tooltip {
+    display: none;
+    /* opacity: 0; */
+    position: absolute;
+    top: 120px;
+    width: 84%;
+    padding: 24px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
+    z-index: 9999;
+    justify-content: left!important;
+    /* transition: opacity 0.5s;
+    transition-delay: 1s; */
+}
+.product-measurement-tooltip > div {
+    margin-left: 24px;
+    text-align: left!important;
+}
+.product-measurement-tooltip svg {
+    flex-shrink: 0;
+    width: 75px!important;
+    height: auto;
+}
+.product-measurement-tooltip span {
+    text-align: start;
+    font-weight: bold;
+}
+.product-measurement-tooltip p {
+    text-align: left!important;
+    margin-top: 10px;
+    line-height: 1rem;
+}
+.product-measurement:hover + .product-measurement-tooltip, .product-measurement-tooltip:hover {
+    display: flex;
+    /* opacity: 1;
+    transition: display 0.5s;
+    transition: opacity 0.5s;
+    transition-delay: 1s; */
+}
+/* .product-measurement img {
+    max-height: 35px;
+} */
+
+/*
+* css for variation radio
+*/
+.variations .value {
+    display: flex;
+    padding: 18px 0;
+}
+.variations label {
+    height: 50px;
+}
+.variations svg {
+    height: 27px;
+}
+.variations input[type="radio"] {
+    display: contents;
+}
+.variations input[type="radio"]:checked + label svg {
+    border: 1px solid grey;
+    border-radius: 50%;
+}
+/*
+* css for add to cart buttons
+*/
+.single_add_to_cart_button, .choose-your-lenses-btn {
+    align-items: center;
+    gap: 6px;
+}
+.single_add_to_cart_button svg, .choose-your-lenses-btn svg {
+    fill: currentColor;
+}
+
+/*
+* css for specifications on product page
+*/
+.specifications > h3{
+    padding: 20px 0 40px 0;
+}
+.spec-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-items: center;
+    text-align: center;
+    row-gap: 40px;
+}
+.product-spec > span, .product-meas > span {
+    font-weight: 650;
+}
+.product-spec > div {
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); */
+    text-align: center;
+    padding: 8px;
+    justify-content: center;
+}
+.product-spec > div > div {
+    padding: 5px;
+}
+.pa_frame-color svg{
+    max-width: 20px;
+    width: 20px;
+}
+.pa_frame-shape svg{
+    max-width: 100px;
+}
+.pwb-brand-shortcode img {
+    max-width: 100px;
+}
+.product-meas svg {
+    height: 75px;
+    flex-shrink: 0;
+}
+.measurement > div > div {
+    font-style: italic;
+}
+.measurement {
+    display: flex;
+    gap: 45px;
+    margin-bottom: 8px;
+}
+
+/*
+* css for ws form
+*/
+.ls-wsf-glasses-use {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ls-wsf-glasses-use > div {
+    display: flex;
+    /* grid-template-columns: repeat(2, 1fr); */
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0;
+    gap: 18px;
+    max-width: 720px;
+}
+.ls-wsf-glasses-use > div > div {
+    position: relative;
+}
+.ls-wsf-glasses-use .wsf-grid .wsf-tile {
+    /* max-width: none!important; */
+}
+.ls-wsf-glasses-use > div > div > label {
+    padding: 20px!important;
+    border-radius: 12px;
+    margin: 0px!important;
+    min-width: 280px;
+    width: 340px;
+    max-height: 200px;
+    box-shadow: #00000036 0px 4px 12px 1px;
+    
+}
+@media (max-width: 662px) {
+    .ls-wsf-glasses-use > div > div > label {
+        display: flex!important;
+        align-items: center;
+        gap: 18px;
+    }
+}
+@media (min-width: 662px) {
+    .ls-wsf-glasses-use > div > div > label {
+        display: block!important;
+        height: 200px;
+    }
+}
+.ls-wsf-glasses-use > div > div > label .wsf-image-caption {
+    width: 100%;
+}
+.ls-wsf-glasses-use input[type="radio"]:checked + label {
+    box-shadow: #00000036 0px 4px 12px 1px;
+    border: black solid 2px;
+}
+.ls-wsf-glasses-use input[type="radio"].wsf-field {
+    opacity: 0!important;
+    top: 10px!important;
+    left: 20px!important;
+}
+.ls-wsf-glasses-use svg {
+    height: 100px;
+}
+.wsf-group-tabs span{
+    display: none;
+}
+.wsf-form-canvas {
+    padding-top: 30px;
+}
+
+/*
+* css for ws form choose your lenses packages
+*/
+.ls-wsf-pckg-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type=radio].ls-wsf-pckg-field + label::before, input[type=radio].ls-wsf-pckg-field + label::after, input[type=radio].ls-wsf-pckg-field {
+    display: none!important;
+}
+input[type=radio].ls-wsf-pckg-field:checked + label > .ls-wsf-pckg-details {
+    /* background-color: black; */
+    border: solid 8px;
+}
+.ls-wsf-pckg-wrapper > div{
+    display: flex;
+    gap: 18px;
+    overflow: auto;
+    padding: 20px;
+    max-width: 100%;
+    /* justify-content: center; */
+}
+input[type=radio].ls-wsf-pckg-field + label{
+    padding-inline-start: 0!important;
+}
+.ls-wsf-pckg-details, .ls-wsf-pckg-more {
+    border: 1px solid rgb(84, 84, 84);
+    text-align: center;
+    width: 200px;
+}
+.ls-wsf-pckg-details {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    box-shadow: #00000036 0px 4px 12px 1px;
+}
+.ls-wsf-pckg-triangle {
+    width: 100%;
+    height: 25px;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 105% 
+        );
+        display: none;
+}
+.ls-wsf-pckg-title {
+    margin-top: 8px;
+    padding-top: 12px;
+    font-size: 12px;
+    font-weight: 800;
+}
+.ls-wsf-pckg-picsub {
+    margin-top: 5px;
+}
+.ls-wsf-pckg-picsub svg {
+    height: 55px;
+}
+.ls-wsf-pckg-picsub > div {
+    position: relative;
+    top: -5px;
+    font-size: 12px;
+}
+.ls-wsf-pckg-features {
+    margin-top: 12px;
+    width: 160px;
+}
+.ls-wsf-pckg-feature{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 8px;
+    padding-bottom: 8px;
+    font-size: 10px;
+    font-weight: 600;
+}
+.ls-wsf-pckg-feature svg{
+    height: 14px;
+}
+.ls-wsf-pckg-priceselector {
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.ls-wsf-pckg-priceselector > span {
+    font-weight: 600;
+    font-size: 14px;
+}
+.ls-wsf-pckg-ps-outercircle {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+    /* display: flex; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.ls-wsf-pckg-ps-innercircle {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+}
+.ls-wsf-pckg-more {
+    height: 25px;
+    font-size: 12px;
+    /* display: flex; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+* css for terms checkbox
+*/
+.ls-wsf-checkterms label {
+    padding-inline-start: 26px!important;
+}
+.ls-wsf-checkterms label::before {
+    width: 20px!important;
+    height: 20px!important;
+    top: -2px!important;
+}
+.ls-wsf-checkterms label::after {
+    height: 20px!important;
+    width: 20px!important;
+    top: -2px!important;
+}
+
+/*
+* css for ws form type of lenses radio
+*/
+.wsf-typeoflens-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wsf-typeoflens-wrapper > div {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    justify-content: center;
+    gap: 18px;
+    max-width: 720px;
+}
+.wsf-typeoflens-wrapper > div > div {
+    position: relative;
+}
+.wsf-typeoflens-wrapper > div > div > label {
+    padding: 0 20px 20px 20px!important;
+    margin: 0px!important;
+    border-radius: 12px;
+    min-width: 280px;
+    width: 340px;
+    display: flex!important;
+    flex-direction: column;
+    box-shadow: #00000036 0px 4px 12px 1px;
+}
+.wsf-typeoflens-wrapper > div > div > input[type="radio"]:checked + label {
+    box-shadow: #00000036 0px 4px 12px 1px;
+    border: black solid 2px;
+}
+.wsf-typeoflens-wrapper > div > div > input[type="radio"].wsf-field {
+    opacity: 0!important;
+    top: 10px!important;
+    left: 20px!important;
+}
+.wsf-typeoflens-wrapper > div > div > input[type="radio"].wsf-field + label.wsf-label::before {
+    display: none;
+}
+/* .wsf-typeoflens-field + label{
+    display: flex!important;
+    align-items: center;
+    gap: 14px;
+} */
+.wsf-typeoflens-wrapper svg {
+    height: 80px;
+}
+
+.ls-wsf-trans-color > div > div, .ls-wsf-tint-color > div > div {
+    padding-top: 20px!important;
+    margin: 0px!important;
+}
+/*
+* css for floating cart
+*/
+.ls-cyl-sum-container {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    max-width: 420px;
+    padding: 20px;
+    text-align: center;
+}
+.ls-cyl-sum-container > * {
+    /* padding: 8px 0; */
+}
+.ls-cyl-sum-container > img {
+    align-self: center;
+}
+.ls-cyl-sum-container > hr {
+    width: 100%;
+}
+.ls-cyl-sum-banner {
+    font-weight: bold;
+}
+.ls-cyl-sum-title {
+    font-size: 1.8em;
+    font-weight: 600;
+    padding: 14px 0;
+}
+.ls-cyl-sum-container .row {
+    display: flex;
+    justify-content: space-between;
+}
+.ls-cyl-sum-container .row.price, .ls-cyl-sum-container .row.options {
+    font-weight: 600;
+}
+.ls-cyl-sum-options {
+    margin-left: 16px;
+}
+.ls-cyl-sum-container .row.options {
+    /* padding-bottom: 4px;
+    margin-bottom: 4px; */
+}
+.ls-cyl-sum-container .total {
+    display: flex;
+    justify-content: flex-end;
+
+    font-size: 1.8em;
+    font-weight: 600;
+
+    padding-top: 8px;
+}
+
+
+/*
+* css for ws form
+*/
+.ls-popup-wrapper {
+    position: absolute!important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff9;
+    z-index: 1000;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ls-popup-container {
+    width: 475px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px black;
+    line-height: 1.2em;
+}
+.ls-popup-buttons {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}

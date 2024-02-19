@@ -1,0 +1,553 @@
+/* Hometrialist Button */
+a.hometrial-addtocart.loading{
+    opacity: .25;
+    padding-right: 2.618em;
+    position: relative;
+}
+a.hometrial-addtocart.loading::after{
+    font-family: WooCommerce;
+    content: '\e01c';
+    vertical-align: top;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    position: absolute;
+    top: auto;
+    right: 1em;
+    animation: spin 2s linear infinite;
+}
+a.hometrial-addtocart.added::after{
+    font-family: WooCommerce;
+    content: '\e017';
+    margin-left: .53em;
+    vertical-align: bottom;
+}
+
+.hometrial-loader {
+    position: absolute;
+    left: 5px;
+}
+/* a.hometrial-button::after,.woocommerce a.button.hometrial-button::after{
+    display: none;
+} */
+a.hometrial-btn.loading,.woocommerce a.button.hometrial-btn.loading{
+    opacity: 1;
+}
+.woocommerce a.button.hometrial-button{
+    display: inline-flex;
+}
+
+.hometrial-shop-top_thumbnail{
+    position: absolute !important;
+    z-index: 9999;
+    top: 10px;
+    left: 10px !important;
+    margin: 0 !important;
+}
+
+.hometrial-button img {
+    display: inline-block !important;
+    width: 25px !important;
+    margin: 0 10px 0 0 !important;
+}
+a.hometrial-button.loading img{
+    opacity: 0.5;
+}
+
+.hometrial-button {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+
+.hometrial-button:focus {
+    outline: none;
+    border:none;
+}
+ 
+.hometrial-button svg {
+    fill: currentColor;
+    transition: all 200ms ease-out;
+    width: 25px;
+    height: 25px;
+}
+.hometrial-button svg + span{
+    margin-left: 6px;
+}
+ 
+.hometrial-button.hometrial-btn:hover svg,
+.hometrial-button.hometrial-btn-exist svg {
+    fill: currentColor;
+}
+ 
+.hometrial-button svg .disabled,
+.hometrial-button svg .check {
+    opacity: 0;
+}
+ 
+.hometrial-button.added svg .check,.hometrial-button.hometrial-btn-exist svg .check {
+    opacity: 1;
+}
+ 
+.hometrial-button.added svg .heart,.hometrial-button.hometrial-btn-exist svg .heart {
+    opacity: 0;
+}
+
+.hometrial-button.hometrial-btn-disabled svg .disabled {
+    opacity: 1;
+}
+
+.hometrial-button.hometrial-btn-disabled svg .check, .hometrial-button.hometrial-btn-disabled svg .heart {
+    opacity: 0;
+}
+ 
+.hometrial-button.loading svg .heart,
+.hometrial-button.loading svg .check,
+.hometrial-button.loading:before {
+    animation:loading 500ms 0ms infinite normal linear;
+    transform-origin: center;
+}
+
+ 
+.hometrial-btn-text {
+    display: flex;
+    align-items: center;
+}
+
+.hometrial-limit-pop {
+    visibility: hidden;
+    /* display: none; */
+    width: 100%!important;
+    background-color: white;
+    text-align: center;
+    padding: 20px!important;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1000;
+    top: 55px;
+    box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.3);
+}
+
+.hometrial-button.hometrial-btn-disabled + .hometrial-limit-pop:hover,
+.hometrial-button.hometrial-btn-disabled:hover + .hometrial-limit-pop {
+    visibility: visible;
+    /* display: block; */
+}
+ 
+@keyframes loading {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+/* Table style*/
+.hometrial-table-content table {
+    width: 100%;
+    margin: 0;
+    border: 1px solid #ebebeb;
+    border-collapse: collapse;
+}
+.hometrial-table-content table thead > tr {
+    background-color: #f9f9f9;
+    border: 1px solid #ebebeb;
+}
+.hometrial-table-content table thead > tr th {
+    border-top: medium none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 20px 30px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    white-space: nowrap;
+    border:0;
+}
+
+.hometrial-table-content table tbody > tr {
+    border-bottom: 1px solid #ebebeb;
+}
+.hometrial-table-content table tbody > tr td {
+    color: #333;
+    font-size: 15px;
+    padding: 10px;
+    text-align: center;
+    border:0;
+}
+
+.hometrial-table-content .quantity .qty {
+    width: 3.631em;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+}
+.theme-blocksy .hometrial-table-content .quantity .qty{
+    width: inherit;
+}
+
+/* Table Loader */
+.hometrial-table-content {
+    position: relative;
+    overflow-y: auto;
+    overflow: visible;
+}
+.hometrial-table-content.loading:before{
+    position: absolute;
+    content:"";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(255,255,255,.6);
+}
+.hometrial-table-content .hometrial-table-content-loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: htcomspin 1s linear infinite;
+    animation: htcomspin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-30px, -25px);
+    display: none;
+}
+
+.hometrial-table-content.loading .hometrial-table-content-loader{
+    display: block;
+}
+
+/* Safari */
+@-webkit-keyframes htcomspin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes htcomspin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Remove Button */
+.hometrial-remove{
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    margin-left: -5px;
+    transition: none;
+    text-decoration: none !important;
+}
+.hometrial-remove:focus{
+    outline: none;
+}
+.hometrial-remove::after, .hometrial-remove::before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 15px;
+    height: 2px;
+    background-color: #2d2a2a;
+    right: 0;
+    -webkit-transform: rotate(45deg);
+     transform: rotate(45deg);
+}
+.hometrial-remove::after{
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.hometrial-remove:hover::after,.hometrial-remove:hover::before{
+    background: #EC1E1E;
+}
+
+.hometrial-emplty-text{
+    text-align: center;
+}
+
+.hometrial-product-add_to_cart a{
+    display: block;
+    text-decoration: none !important;
+}
+.hometrial-product-add_to_cart a.wc-forward{
+    margin-top: 10px;
+}
+
+/* Compare hometrialist adjustment */
+.htcompare-btn + .hometrial-button{
+    margin-left: 10px;
+}
+
+/* Variation Product Quick Cart */
+.hometrial-product-add_to_cart{
+    position: relative;
+}
+.hometrial-quick-cart-area {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 99;
+    background-color: #fff;
+    padding: 15px 20px 15px 20px;
+    border: 1px solid #ddd;
+}
+.quick-cart-open .hometrial-quick-cart-area{
+    overflow: hidden;
+    overflow-y: auto;
+    display: block;
+}
+.hometrial-quick-cart-area .hometrial-button {
+  display: none !important;
+}
+.hometrial-product-add_to_cart .hometrial-quick-cart-area a {
+  display: inline-block;
+}
+
+.hometrial-quick-cart-close {
+    display: inline-block;
+    padding: 1px 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.hometrial-quick-cart-close:hover{
+  color:#D93025;
+}
+.hometrial-quick-cart-area form.cart .variations select {
+    max-width: 100%;
+    min-width: 75%;
+    display: inline-block;
+    width: 100%;
+    margin-right: 0;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+.hometrial-quick-cart-area form.cart .variations select:focus {
+    outline: none;
+}
+.hometrial-quick-cart-area .single_add_to_cart_button {
+    width: auto;
+}
+.hometrial-quick-cart-area .single_add_to_cart_button.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+.hometrial-quick-cart-area .quantity {
+    display: inline-block;
+}
+.hometrial-quick-cart-area .woocommerce-variation-add-to-cart{
+    margin-top: 15px;
+}
+.hometrial-quick-cart-area form.cart table {
+    border-width: 0 0 1px;
+    margin: 0 0 1.2em;
+}
+
+.hometrial-quick-cart-area form.cart .variations {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    position: relative;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.hometrial-quick-cart-area form.cart .variations td, .hometrial-quick-cart-area form.cart .variations th {
+    border: 0;
+    vertical-align: top;
+    line-height: 2em;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    display: block;
+    text-align: left;
+}
+.hometrial-quick-cart-area form.cart table td {
+    padding-left: 0;
+}
+.hometrial-quick-cart-area a.added_to_cart{
+    width: 100%;
+    padding: 3px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+}
+.hometrial-quick-cart-area a.reset_variations {
+    text-align: left;
+}
+
+/* Social Media Share */
+.hometrial-social-share {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+.hometrial-social-share .hometrial-social-title{}
+.hometrial-social-share ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+.hometrial-social-share ul li{
+    display: inline-block;
+}
+.hometrial-social-share ul li a{
+    display: block;
+    line-height: 1;
+    padding: 5px;
+    color: #3a3a3a;
+}
+.hometrial-social-share ul li a .hometrial-social-icon{}
+.hometrial-social-share ul li a .hometrial-social-icon svg{
+    fill:currentColor;
+    width: 15px;
+    height: 15px;
+}
+
+/* Hometrialist Counter */
+.hometrial-counter-area:not(.hometrial-has-text) {
+    display: inline-flex;
+    position: relative;
+    line-height: 1;
+    width: 30px;
+    color: #222;
+    margin: 0px 7px 0 12px;
+}
+.hometrial-counter-area:not(.hometrial-has-text) span.hometrial-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    right: 1px;
+    top: -3px;
+    background: #ec5858;
+    color: #fff;
+    font-size: 11px;
+    line-height: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+.hometrial-align-center .hometrial-counter-area:not(.hometrial-has-text) span.hometrial-counter {
+    right: -5px;
+}
+.hometrial-align-right .hometrial-counter-area:not(.hometrial-has-text) span.hometrial-counter{
+    right: -8px;
+}
+.hometrial-counter-area.hometrial-has-text {
+    display: inline-flex;
+    align-items: center;
+    color: #222;
+    font-size: 16px;
+}
+.hometrial-has-text span.hometrial-counter-icon {
+    display: flex;
+    margin: 0 5px;
+}
+.hometrial-has-text .hometrial-counter-icon{
+    color: #ec5858;
+}
+.hometrial-counter-icon svg {
+    fill: currentColor;
+}
+
+/* WooLentor addons */
+.elementor-widget-woolentor-universal-product .hometrial-button img,
+.elementor-widget-woolentor-product-tab .hometrial-button img{
+    margin: 0 !important;
+}
+
+/*@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {*/
+
+@media (max-width: 767px) {
+
+    /* Force table to not be like tables anymore */
+    .hometrial-table-content table, .hometrial-table-content thead, .hometrial-table-content tbody, .hometrial-table-content th, .hometrial-table-content td, .hometrial-table-content tr { 
+        display: block; 
+    }
+    .hometrial-table-content table, .hometrial-table-content table th, .hometrial-table-content table tbody > tr td,.hometrial-table-content table td.hometrial-product-title{
+        text-align: left;
+    }
+
+    .hometrial-table-content table{
+        border:none;
+    }
+
+    .hometrial-table-content td{
+        padding: 10px;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .hometrial-table-content thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .hometrial-table-content tr {
+        border: 1px solid #ebebeb;
+        margin-top: 15px;
+    }
+    
+    .hometrial-table-content table tbody > tr td {
+        border: none;
+        border-bottom: 1px solid #ebebeb; 
+        position: relative;
+        padding-left: 50%;
+    }
+    
+    .hometrial-table-content td::before {
+        position: absolute;
+        top: 34%;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+    }
+
+    .hometrial-product-add_to_cart a{
+        text-align: center;
+    }
+    
+    /*
+    Label the data
+    */
+    .hometrial-table-content td:nth-of-type(1):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(2):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(3):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(4):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(5):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(6):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(7):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(8):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(9):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(10):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(11):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(12):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(13):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(14):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(15):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(16):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(17):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(18):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(19):before { content: attr(data-label); }
+    .hometrial-table-content td:nth-of-type(20):before { content: attr(data-label); }
+
+}
